@@ -1,7 +1,26 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "api": {
+      "root": ".",
+      "framework": "flask"
+    },
+    "frontend": {
+      "root": "public"
+    }
+  },
   "rewrites": [
-    { "source": "/api", "destination": "/api/index.py" },
-    { "source": "/api/(.*)", "destination": "/api/index.py" }
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "api"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
+    }
   ]
 }
