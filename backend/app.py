@@ -12,7 +12,8 @@ from backend.pipeline import format_code, SUPPORTED_LANGUAGES
 
 # Serve frontend files from the frontend/ directory (resolved from project root)
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FRONTEND_DIR = os.path.join(PROJECT_ROOT, "frontend")
+PUBLIC_DIR   = os.path.join(PROJECT_ROOT, "public")
+FRONTEND_DIR = PUBLIC_DIR if os.path.exists(PUBLIC_DIR) else os.path.join(PROJECT_ROOT, "frontend")
 STATIC_DIR   = os.path.join(FRONTEND_DIR, "static")
 
 app = Flask(__name__, static_folder=STATIC_DIR, static_url_path="/static")
