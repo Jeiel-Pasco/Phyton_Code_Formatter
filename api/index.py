@@ -1,0 +1,13 @@
+"""Vercel Serverless Function entry point for Code Formatter Flask API."""
+import os
+import sys
+
+# Ensure repository root is on sys.path so 'backend' modules are accessible
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+from backend.app import app
+
+# Vercel looks for 'app' in WSGI mode
+__all__ = ["app"]

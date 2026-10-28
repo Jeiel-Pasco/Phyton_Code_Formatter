@@ -1,0 +1,12 @@
+{
+  "name": "code-formatter",
+  "version": "1.0.0",
+  "description": "Full-stack Code Formatter Web Application",
+  "scripts": {
+    "dev": "python backend/app.py",
+    "start": "python backend/app.py",
+    "build": "echo \"Build step complete\"",
+    "server": "python backend/app.py",
+    "test": "python Tests/benchmark.py"
+  }
+}
